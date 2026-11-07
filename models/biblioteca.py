@@ -22,13 +22,3 @@ class Biblioteca:
     def ativo(self):
         return "Ativada" if self._ativo else "Desativada"
 
-bibliotecaJoinville = Biblioteca("Biblioteca de Joinville")
-bibliotecaShopping =  Biblioteca("Biblioteca do Shopping")
-
-print(bibliotecaShopping)
-print(bibliotecaJoinville)
-
-bibliotecaJoinville.alterna_estado() #<- ele retorna o valor contrário que esta definido em uma função
-bibliotecaShopping.alterna_estado()  #<- ele retorna o valor contrário que esta definido em uma função
-
-Biblioteca.listarBibliotecas()
