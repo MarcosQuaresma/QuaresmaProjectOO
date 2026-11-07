@@ -7,10 +7,12 @@ class Biblioteca:
     def __str__(self):        #<- Método que sobreescreve a informação quando o objeto for instanciado
         return self.nome
 
-    def listarBibliotecas():  #<- Método que faz interação sobre os dados
-    
+    @classmethod #"Decorador" muito ultilizado em orientação a objetos. nesse caso terei que usar o "(cls)" dentro da função definida.
+    def listarBibliotecas(cls):  #<- Método que faz interação sobre os dados 
+                                 #<- adicionando o "(cls)" referente a minha class
+        print(f"{'Nome da biblioteca'.ljust(28)} - {'Status'}")
         for biblioteca in Biblioteca.bibliotecas:
-            print(f"{biblioteca.nome} - {biblioteca.ativo}")
+            print(f"{biblioteca.nome.ljust(28)} - {biblioteca.ativo}")
 
     def alterna_estado(self):  #<- esse seria o equivalente ao método set em Java
         self._ativo = not self._ativo # ele ta recebendo a negação "not" ou seja: se lá em cima na class Biblioteca estiver "True"
@@ -24,7 +26,9 @@ bibliotecaJoinville = Biblioteca("Biblioteca de Joinville")
 bibliotecaShopping =  Biblioteca("Biblioteca do Shopping")
 
 print(bibliotecaShopping)
-bibliotecaJoinville.alterna_estado() #<- nessa ordem a biaxo do print ele retorna o valor contrário que esta definido em uma função
 print(bibliotecaJoinville)
-bibliotecaShopping.alterna_estado()  #<- nessa ordem a biaxo do print ele retorna o valor contrário que esta definido em uma função
+
+bibliotecaJoinville.alterna_estado() #<- ele retorna o valor contrário que esta definido em uma função
+bibliotecaShopping.alterna_estado()  #<- ele retorna o valor contrário que esta definido em uma função
+
 Biblioteca.listarBibliotecas()
