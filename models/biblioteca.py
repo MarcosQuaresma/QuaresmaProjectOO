@@ -1,18 +1,20 @@
 class Biblioteca:
-    nome = ""
-    ativo = False
+    bibliotecas = []
+    def __init__(self, nome):
+        self.nome = nome
+        self.ativo = False
+        Biblioteca.bibliotecas.append(self)
+    def __str__(self):
+        return self.nome
 
-bibliotecaCidade = Biblioteca()
-bibliotecaCidade.nome = "Biblioteca da Cidade"
-bibliotecaCidade.ativo = True
+    def listarBibliotecas():
+        for biblioteca in Biblioteca.bibliotecas:
+            print(f"{biblioteca.nome} - {biblioteca.ativo}")
 
-bibliotecaShopping = Biblioteca()
+bibliotecaJoinville = Biblioteca("Biblioteca de Joinville")
+bibliotecaShopping =  Biblioteca("Biblioteca do Shopping")
 
-listaBibliotecas = [bibliotecaShopping, bibliotecaCidade] #<- dessa maneira teremos que utilizar o loop "for x in y:"
+print(bibliotecaShopping)
+print(bibliotecaJoinville)
 
-print(vars(bibliotecaCidade)) # <- quando eu cham o "vars()" ele me retorna em fromato de dicinário {}
-                              # e as informações que tem dentro do objeto 
-print(vars(bibliotecaShopping))
-
-for x in listaBibliotecas:
-    print(vars(x))
+Biblioteca.listarBibliotecas()
