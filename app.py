@@ -5,6 +5,9 @@ biblioteca_Shopping = Biblioteca("Biblioteca do Shopping")
 
 biblioteca_Joinville.alterna_estado()
 
+biblioteca_Joinville.receber_avaliacao("01 - Indivíduo", 8.5)
+biblioteca_Joinville.receber_avaliacao("02 - Indivíduo", 9.9)
+
 def main():
     Biblioteca.listarBibliotecas() 
 

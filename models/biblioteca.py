@@ -1,8 +1,12 @@
+from models.avaliacao import Avaliacao
+
 class Biblioteca:
     bibliotecas = []
     def __init__(self, nome): #<-  Método contrutor: Assim que eu instanciar minha classe precio passar o nome dela (self,nome)
         self.nome = nome
         self._ativo = False # <- O modificador de visibilidade mais seguro é o "_" dentro do encapsulamento -> PRIVADO
+        self._avaliacao = []
+        
         Biblioteca.bibliotecas.append(self)
     def __str__(self):        #<- Método que sobreescreve a informação quando o objeto for instanciado
         return self.nome
@@ -22,3 +26,6 @@ class Biblioteca:
     def ativo(self):
         return "Ativada" if self._ativo else "Desativada"
 
+    def receber_avaliacao(self, cliente, nota):
+        avaliacao = Avaliacao(cliente, nota)
+        self._avaliacao.append(avaliacao)
