@@ -1,4 +1,5 @@
 from models.avaliacao import Avaliacao
+from models.itens.item_biblioteca import ItemBiblioteca
 
 class Biblioteca:
     bibliotecas = []
@@ -6,7 +7,8 @@ class Biblioteca:
         self.nome = nome
         self._ativo = False # <- O modificador de visibilidade mais seguro é o "_" dentro do encapsulamento -> PRIVADO
         self._avaliacao = []
-        
+        self._itens = [] #<- nessa lista eu posso adicionar quantos livros ou revista eu quiser.
+    
         Biblioteca.bibliotecas.append(self)
     def __str__(self):        #<- Método que sobreescreve a informação quando o objeto for instanciado
         return self.nome
@@ -38,3 +40,17 @@ class Biblioteca:
         soma = sum(avaliacao._nota for avaliacao in self._avaliacao)
         media = round(soma / len(self._avaliacao), 1)
         return media
+
+    def adicionar_item(self, item):
+        if isinstance(item, ItemBiblioteca):
+            self._itens.append(item)
+    
+    def exibit_itens(self):
+        print(f"Itens da Biblioteca {self.nome}\n")
+        for indice, item in enumerate(self._itens, start=1): #<- no "enumerate()" ele trás além do valor o indice da iteração.
+            if hasattr(item, "isbn"):
+                msg_livro = f"{indice}. (LIVRO)-> Título: {item._titulo} | Autor: {item._autor} | Preço: {item._preco} | ISBN: {item.isbn}"
+                print(msg_livro)
+            else:
+                msg_revista = f"{indice}. (REVISTA)-> Título: {item._titulo} | Autor: {item._autor} | Preço: {item._preco} | Edição: {item.edicao}"
+                print(msg_revista)
