@@ -6,5 +6,6 @@ class Livro(ItemBiblioteca): #<- pra herdar a classe "ItemBiblioteca" basta por 
         self.isbn = isbn # "isbn" uma subclasse especializada    # do construtor da classe pai, sem precisar ter que incluir novamente. 
                          # difere revista de livro.              # -> dentro da classe filha: class Livro():
 
-        
+    def aplicar_desconto(self):
+        self._preco -= (self._preco * 0.10) # 10% de desconto.
         

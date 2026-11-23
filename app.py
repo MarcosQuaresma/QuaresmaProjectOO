@@ -10,6 +10,9 @@ livro01 = Livro("Windswept House: A Vatican Novel", "Malachi Martin", 367.00, "9
 livro02 = Livro("The Fourth Industrial Revolution", "Klaus Schwab", 54.00, "978-85-7283-978-5")
 revista01 = Revista("The Economist", "James Wilson", 1704.00, "41")
 
+livro01.aplicar_desconto()
+revista01.aplicar_desconto()
+
 biblioteca_Joinville.adicionar_item(livro01)
 biblioteca_Joinville.adicionar_item(livro02)
 biblioteca_Joinville.adicionar_item(revista01)
